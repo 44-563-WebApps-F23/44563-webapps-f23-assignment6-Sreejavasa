@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Author - Sreeja Vasa</title>
+    </head>
+ 
+<body>
+    <h1>Author entry - Sreeja Vasa</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="hidden-author">The hidden author name</label>
+
+    <input type="password" id="hidden-author" value="Dickens">
+
+    </br>    
+
+        <!-- Input to check the guess -->
+
+    <label for="guess-author">Guess the author</label>
+
+    <input type="text" id="guess-author">
+
+    </br>
+
+    <input type="button" onclick="checkAuthor()" value="Check the guess">
+
+</br>
+</form>
+
+</br>
+
+<div id="results">
+
+    Good: <span id="good-count">0</span></br>
+
+    Oops: <span id="oops-count">0</span>
+
+</div>
+
+ 
+
+<script>
+
+    // Global variables
+
+    var good = 0;
+
+    var oops = 0;
+
+   
+
+    // Function to check the author guess
+
+    function checkAuthor() {
+
+        // Get the values from input elements
+
+        var hiddenAuthor = document.getElementById("hidden-author").value;
+
+        var guessAuthor = document.getElementById("guess-author").value;
+
+       
+
+        // Compare the values
+
+        if (hiddenAuthor === guessAuthor) {
+
+            good++; // Increment the 'good' count
+
+            alert("You got it right!");
+
+        } else {
+
+            oops++; // Increment the 'oops' count
+
+            alert("Sorry");
+
+        }
+
+       
+
+        // Update the innerHTML for the results element
+
+        document.getElementById("good-count").innerHTML = good;
+
+        document.getElementById("oops-count").innerHTML = oops;
+
+    }
+
+</script>
+
+ 
+
+</body>
+
+</html>
