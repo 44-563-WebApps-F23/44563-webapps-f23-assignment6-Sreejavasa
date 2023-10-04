@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tip Calculator</title>
+    </head>
+ 
+<body>
+    <h1>Sreeja Vasa - shows tip amounts</h1>
+
+<h2>Getting input</h2>
+
+<label for="baseAmount">Enter base amount:</label>
+    <input type="number" id="baseAmount" value="50"><br>
+
+    <label for="tipPercent">Enter the tip percent:</label>
+    <input type="number" id="tipPercent" value="15"><br>
+
+    <input type="button" value="Show Tip" onclick="calculateTips()"><br>
+
+    <p id="results">Tips are:</p>
+
+<script> 
+
+    function calculateTips() {
+            const baseAmount = parseFloat(document.getElementById("baseAmount").value);
+            const tipPercent = parseFloat(document.getElementById("tipPercent").value);
+            let toShow = "Tips are: ";
+
+            for (let i = 0; i < 5; i++) {
+                const tipValue = (tipPercent + i * 4) / 100 * baseAmount;
+                toShow += `${tipPercent + i * 4}% is ${tipValue.toFixed(2)}; `;
+            }
+
+            document.getElementById("results").innerHTML = toShow;
+        }
+
+</script>
+
+</body>
+</html> 
