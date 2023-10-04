@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sreeja's Cruise Planner</title>
+    </head>
+ 
+<body>
+    <h1>Sreeja Vasa goes on a cruise</h1>
+
+
+<h2>Getting input</h2>
+
+<form>
+    <div class="form-group">
+        <label>
+            <input type="checkbox" id="checkboxSharesCabin" value="True"> Shares Cabin
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox" id="checkboxBreakfast" value="True"> Breakfast
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox" id="checkboxPoolPass" value="False"> Pool Pass
+        </label></form>
+        <form>
+    </div>
+    <div class="form-group">
+        <label for="days">Enter the number of days</label>
+        <input type="text" id="days" value="7">
+    </div>
+    <div class="form-group">
+        <label for="price">Enter price</label>
+        <input type="text" id="price" value="1000">
+    </div>
+    <button onclick="updateCruise()">Update the cruise</button>
+</form>
+<button onclick="selectCruise()">Select a cruise</button>
+
+<p id="results"></p>
+
+<script>
+    //  Declare a global variable and initialize it
+    var my_cruise = {};
+
+
+        function selectCruise() {
+            my_cruise = {};
+            my_cruise.shared = document.getElementById("checkboxSharesCabin").checked;
+            my_cruise.breakfast = document.getElementById("checkboxBreakfast").checked;
+            my_cruise.pool = document.getElementById("checkboxPoolPass").checked;
+            document.getElementById("results").innerHTML = JSON.stringify(my_cruise);
+        }
+
+        function updateCruise() {
+            var days = document.getElementById("days").value;
+            var price = document.getElementById("price").value;
+            my_cruise["days"] = days;  // Use bracket notation to set object properties
+            my_cruise["price"] = price;
+            document.getElementById("results").innerHTML = JSON.stringify(my_cruise);
+        }
+</script>
+
+</body>
+</html> 
