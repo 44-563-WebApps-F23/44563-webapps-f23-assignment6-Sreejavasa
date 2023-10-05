@@ -5,27 +5,27 @@
     <title>Author - Sreeja Vasa</title>
 </head>
 
-<body>
-    <h1>Author entry - Sreeja Vasa</h1>
-    <h2>Getting input</h2>
+<body style="background-color: lightyellow">
+</br>
+</br>
+
+    <div class="container py-3 row mx-auto col-sm-6 card card-header bg-light form-group"></div>
+    <h1  class="mb-0">Author entry - Sreeja Vasa</h1>
+    <h2  class="mb-0">Getting input</h2>
 
     <form>
-        <label for="hidden-author">The hidden author name</label>
-
-        <input type="password" id="hidden-author" value="Dickens">
-
+        <label class="col-lg-3 col-form-label form-control-label" for="hidden-author">The hidden author name</label>
+        <div class="col-lg-5">
+            <input type="password" class="form-control" id="hidden-author" value="Dickens">
+        </div>
+        </br>    
+            <!-- Input to check the guess -->
+        <label class="col-lg-3 col-form-label form-control-label" for="guess-author">Guess the author</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" id="guess-author">
+        </div>
         </br>
-
-        <!-- Input to check the guess -->
-
-        <label for="guess-author">Guess the author</label>
-
-        <input type="text" id="guess-author">
-
-        </br>
-
-        <input type="button" onclick="checkAuthor()" value="Check the guess">
-
+            <input class="btn btn-outline-secondary" type="button" id="guessbutton" onclick="checkAuthor()" value="Check the guess">
         </br>
     </form>
 
@@ -40,6 +40,9 @@
     </div>
     <div id="image-container">
         <img id="city-image" src="Vancouver.jpg" alt="vancover" onclick="selectImage()" width="100px" height="100px">
+    </br>
+    </br>
+</br>
 
     </div>
 
@@ -59,17 +62,30 @@
             var hiddenAuthor = document.getElementById("hidden-author").value;
             var guessAuthor = document.getElementById("guess-author").value;
             // Compare the values
-            if (hiddenAuthor === guessAuthor) {
+            if (hiddenAuthor === guessAuthor) 
+            {
                 good++; // Increment the 'good' count
                 alert("You got it right!");
-            } else {
-                oops++;
+            } 
+            else
+         {
+            oops++; // Increment the 'oops' count
+            if(oops >=7)
+            {
+                document.getElementById('guessbutton').onclick = function()
+                 {
+                    alert("Sorry ran out of guess");
+                 }
+            }
+            else
+            {
                 alert("Sorry");
             }
+        }
             // Update the innerHTML for the results element
             document.getElementById("good-count").innerHTML = good;
             document.getElementById("oops-count").innerHTML = oops;
-        }
+    }
         var useImage = 1;
     
         // Step 5: Function to switch and display images
