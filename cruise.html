@@ -24,7 +24,10 @@
     <div class="form-group">
         <label>
             <input type="checkbox" id="checkboxPoolPass" value="False"> Pool Pass
-        </label></form>
+        </label>
+</div>
+        <input type="button" onclick="selectCruise()" value ="Select a cruise">
+    </form>
         <form>
     </div>
     <div class="form-group">
@@ -35,18 +38,19 @@
         <label for="price">Enter price</label>
         <input type="text" id="price" value="1000">
     </div>
-    <button onclick="updateCruise()">Update the cruise</button>
+    <input type="button" onclick="updateCruise()" value="Update the cruise">
 </form>
-<button onclick="selectCruise()">Select a cruise</button>
+
 
 <p id="results"></p>
 
 <script>
     //  Declare a global variable and initialize it
-    var my_cruise = {};
+    //var my_cruise = {};
 
 
-        function selectCruise() {
+        function selectCruise()
+         {
             my_cruise = {};
             my_cruise.shared = document.getElementById("checkboxSharesCabin").checked;
             my_cruise.breakfast = document.getElementById("checkboxBreakfast").checked;
@@ -54,7 +58,8 @@
             document.getElementById("results").innerHTML = JSON.stringify(my_cruise);
         }
 
-        function updateCruise() {
+        function updateCruise()
+         {
             var days = document.getElementById("days").value;
             var price = document.getElementById("price").value;
             my_cruise["days"] = days;  // Use bracket notation to set object properties
